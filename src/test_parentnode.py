@@ -13,7 +13,6 @@ class TestParentNode(unittest.TestCase):
         grandchild_node = LeafNode("b", "grandchild")
         child_node = ParentNode("span", [grandchild_node])
         parent_node = ParentNode("div", [child_node])
-        print(grandchild_node, child_node, parent_node)
         self.assertEqual(
             parent_node.to_html(),
             "<div><span><b>grandchild</b></span></div>",
@@ -23,7 +22,6 @@ class TestParentNode(unittest.TestCase):
         grandchild_node = LeafNode("b", "grandchild")
         child_node = ParentNode("div", [])
         parent_node = ParentNode("div", [child_node], {"className": "wrapper"})
-        print(grandchild_node, child_node, parent_node)
         self.assertRaises(ValueError, parent_node.to_html)
 
     def test_no_tag(self):

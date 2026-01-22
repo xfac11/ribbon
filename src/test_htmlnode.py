@@ -31,7 +31,6 @@ class TestHTMLNode(unittest.TestCase):
     def test_repr(self):
         node = HTMLNode(tag="h2", value="My website")
         represent = node.__repr__()
-        print(node)
         self.assertEqual(represent, "HTMLNode(h2, My website, None, None)")
 
     def test_to_html(self):

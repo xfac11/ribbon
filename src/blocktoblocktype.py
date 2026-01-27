@@ -20,10 +20,7 @@ def is_quote(block):
     split = block.split("\n")
     for line in split:
         if line[0] == ">":
-            if line[1] == " " and line[2] != "":
-                continue
-            if line[1] != "":
-                continue
+            continue
         return False
     return True
 

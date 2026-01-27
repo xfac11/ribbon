@@ -3,7 +3,8 @@ from shutil import*
 from os import listdir
 from os import mkdir
 from os import path
-
+from generatepage import generate_page
+from generatepagesrecursive import generate_pages_recursive
 def copy_tree_r(source, destination):
     if not path.exists(source):
         raise TypeError(f"Source path: {source} does not exist")
@@ -25,4 +26,5 @@ def copy_tree(source, destination):
 
 def main():
     copy_tree("static", "public")
+    generate_pages_recursive("content", "template.html", "public")
 main()

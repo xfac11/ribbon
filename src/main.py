@@ -26,11 +26,9 @@ def copy_tree(source, destination):
     copy_tree_r(source, destination)
 
 def main():
-    base_path = "/"
-    if len(sys.argv) < 1:
-        base_path = sys.argv[1]
+    base_path = sys.argv[1] if sys.argv[1] else "/"
     
-
+    print(base_path)
 
     copy_tree("static", "docs")
     generate_pages_recursive("content", "template.html", "docs", base_path)

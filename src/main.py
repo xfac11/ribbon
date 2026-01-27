@@ -28,7 +28,7 @@ def copy_tree(source, destination):
 def main():
     base_path = sys.argv[1] if sys.argv[1] else "/"
     
-    print(base_path)
+    print(f"Creating ribbon pages using the base path: {base_path}")
 
     copy_tree("static", "docs")
     generate_pages_recursive("content", "template.html", "docs", base_path)

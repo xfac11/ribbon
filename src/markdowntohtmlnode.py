@@ -52,7 +52,6 @@ def create_paragraph_html_node(block):
 
 def create_code_html_node(block):
     code_text = block[4:-3]
-    print(code_text)
     parent_node = ParentNode("pre", [ParentNode("code", [text_node_to_html_node(TextNode(code_text, TextType.PLAIN))])])
     return parent_node
 

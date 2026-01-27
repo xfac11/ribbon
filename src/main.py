@@ -3,6 +3,7 @@ from shutil import*
 from os import listdir
 from os import mkdir
 from os import path
+import sys
 from generatepage import generate_page
 from generatepagesrecursive import generate_pages_recursive
 def copy_tree_r(source, destination):
@@ -25,6 +26,12 @@ def copy_tree(source, destination):
     copy_tree_r(source, destination)
 
 def main():
-    copy_tree("static", "public")
-    generate_pages_recursive("content", "template.html", "public")
+    base_path = "/"
+    if len(sys.argv) < 1:
+        base_path = sys.argv[1]
+    
+
+
+    copy_tree("static", "docs")
+    generate_pages_recursive("content", "template.html", "docs", base_path)
 main()

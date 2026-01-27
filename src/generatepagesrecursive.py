@@ -1,9 +1,9 @@
 import os
 from generatepage import generate_page
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, base_path):
     if os.path.isfile(dir_path_content) and dir_path_content.endswith('.md'):
-        generate_page(dir_path_content, template_path, dest_dir_path.replace(".md", ".html"))
+        generate_page(dir_path_content, template_path, dest_dir_path.replace(".md", ".html"), base_path)
         return
     files = os.listdir(dir_path_content)
     for file in files:
-        generate_pages_recursive(os.path.join(dir_path_content, file), template_path,  os.path.join(dest_dir_path, file))
+        generate_pages_recursive(os.path.join(dir_path_content, file), template_path,  os.path.join(dest_dir_path, file), base_path)
